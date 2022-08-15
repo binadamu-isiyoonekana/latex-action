@@ -10,6 +10,7 @@ inputs:
     required: true
   working_directory:
     description: The working directory for the LaTeX compiler to be invoked
+    default: "."
   compiler:
     description: LaTeX engine to be used
     default: latexmk

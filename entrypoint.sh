@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
+shopt -s extglob
 
 # -------------------------------------------------------------------------------------------------
 # FUNCTIONS
@@ -28,7 +29,7 @@ working_directory="$2"
 compiler="$3"
 compiler_options="$4"
 
-if [ -z "$main_file" ]; then
+if [[ -z "$main_file" ]]; then
   error "Input 'main_file' is missing."
 fi
 
@@ -38,7 +39,10 @@ if [[ -z "$compiler" && -z "$compiler_options" ]]; then
   compiler_options="-pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape"
 fi
 
-if [ -n "$working_directory" ]; then
+if [[ -n "$working_directory" ]]; then
+  if [[ ! -d "$working_directory" ]]; then
+    mkdir -p "$working_directory"
+  fi
   cd "$working_directory"
 fi
 
