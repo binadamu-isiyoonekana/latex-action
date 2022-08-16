@@ -34,9 +34,9 @@ if [[ -z "$main_file" ]]; then
 fi
 
 if [[ -z "$compiler" && -z "$compiler_options" ]]; then
-  warn "Input 'compiler' and 'compiler_options' are both empty. Reset them to default values."
+  warn "Input 'compiler' and 'compiler_options' are both empty. Reset to default 'latexmk' and 'lualatex' tandem."
   compiler="latexmk"
-  compiler_options="-pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape"
+  compiler_options="-lualatex -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape"
 fi
 
 if [[ -n "$working_directory" ]]; then
@@ -46,7 +46,7 @@ if [[ -n "$working_directory" ]]; then
   cd "$working_directory"
 fi
 
-echo "Current user: $USERNAME"
+echo "Current user: $USER"
 
 # Set Github workspace directory as a secure git repository
 #

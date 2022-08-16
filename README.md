@@ -12,7 +12,7 @@ The following input parameters
 | `main_file`      | Main file path name | None |
 | `working_directory` | Action's working directory | None |
 | `compiler`   | LaTeX engine to be used | [`latexmk`](https://ctan.org/pkg/latexmk?lang=en) |
-| `compiler_options`   | List of options to be passed to the LaTex engine | `-pdf -file-line-error -halt-on-error -interaction=nonstopmode` |
+| `compiler_options`   | List of options to be passed to the LaTex engine | `-lualatex -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape` |
 
 ## Outputs
 
@@ -39,10 +39,10 @@ jobs:
     steps:
       # Compile source LaTeX document and output a PDF version
       - name: Compile LaTeX document
-        uses: github/AutonomyOrg/github-actions/latex-action
+        uses: AutonomyOrg/github-actions/latex-action@main
         with:
           main_file: main.tex
-          compiler_options: -lualatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape
+          compiler_options: -lualatex -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape
 ```
 
 ## Credits
