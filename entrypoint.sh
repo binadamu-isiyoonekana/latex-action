@@ -49,6 +49,6 @@ fi
 # Set Github workspace directory as a secure git repository
 #
 # See: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem
-git config --global --add safe.directory "/github/workspace"
+sudo git config --global --add safe.directory "/github/workspace"
 
 "$compiler" $compiler_options "$main_file"
